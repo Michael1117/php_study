@@ -23,18 +23,3 @@ if (!mysqli_select_db($link, $db_name)) {
 
 mysqli_set_charset($link, $charset);
 
-// 5 执行查询的SQL语句
-$sql = "UPDATE student SET salary = salary + 50 WHERE salary < 5000";
-
-mysqli_query($link, $sql);
-
-//$sql = "SELECT * FROM student WHERE salary < 8000";
-
-//$result = mysqli_query($link, $sql);
-
-
-// 6 从连接标识符获取受到影响的行数
-
-$records = mysqli_affected_rows($link);
-
-//echo "共有{$records}个学生工资更新成功！";

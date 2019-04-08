@@ -4,7 +4,7 @@ require_once("./conn.php");
 
 // 执行查询的SQL  语句
 
-$sql = "SELECT * FROM student ORDER BY id DESC ";
+$sql = "SELECT * FROM student ORDER BY id ASC ";
 
 $result = mysqli_query($link, $sql);
 
@@ -12,7 +12,7 @@ $arrs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 $records = mysqli_num_rows($result);
 
-echo $records;
+//echo $records;
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,6 +22,13 @@ echo $records;
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>学生信息管理中心</title>
+    <script type="text/javascript">
+        function confirmDel(id) {
+            if(window.confirm("你真的要删除吗?")) {
+                location.href = "./delete.php?id="+id;
+            }
+        }
+    </script>
 </head>
 <body>
     <div style="text-align: center; padding-bottom: 10px">
@@ -55,7 +62,10 @@ echo $records;
             <td><?php echo $arr['salary'] ?></td>
             <td><?php echo $arr['bonus'] ?></td>
             <td><?php echo $arr['city'] ?></td>
-            <td></td>
+            <td>
+                <a href="">修改</a>|
+                <a href="#" onClick="confirmDel(<?php echo $arr['id']?>)">删除</a>
+            </td>
         </tr>
         <?php }?>
     </table>
