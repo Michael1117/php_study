@@ -24,30 +24,13 @@ if (!mysqli_select_db($link, $db_name)) {
 mysqli_set_charset($link, $charset);
 
 // 5 执行查询的SQL语句
-$sql = "SELECT * FROM student";
+$sql = "SELECT * FROM student WHERE salary < 8000";
 
 $result = mysqli_query($link, $sql);
 
-// 6 从结果集中获取一行数据，并作为枚举数组返回
 
-/*while ($arr = mysqli_fetch_row($result)) {
-    print_r($arr);
-}*/
+// 6 从结果集中获取记录数
 
+$records = mysqli_num_rows($result);
 
-// 6 从结果集中获取一行数据，并作为关联数组(字段名作为下标)返回
-
-/*while ($arr = mysqli_fetch_assoc($result)) {
-    print_r($arr['edu']);
-}*/
-
-// 6 从结果集中获取一行数据，枚举数组 和 关联数组 都有
-/*
-while ($arr = mysqli_fetch_array($result)) {
-    print_r($arr);
-}*/
-
-
-/*$arrs = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-print_r($arrs);*/
+echo "记录数为：$records";
