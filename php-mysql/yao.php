@@ -35,5 +35,15 @@ $result = mysqli_query($link, $sql);
 
 // 6 手动销毁结果集变量
 
-mysqli_free_result($result);
+//mysqli_free_result($result);
 //mysqli_close($link);
+
+// 7 从结果集中获取一行数据，并作为枚举数组返回
+
+while ($arr = mysqli_fetch_row($result)) {
+    print_r($arr);
+}
+
+//$arr = mysqli_fetch_row($result);
+//
+//print_r($arr);
