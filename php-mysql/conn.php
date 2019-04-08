@@ -37,4 +37,4 @@ mysqli_query($link, $sql);
 
 $records = mysqli_affected_rows($link);
 
-echo "共有{$records}个学生工资更新成功！";
+//echo "共有{$records}个学生工资更新成功！";
