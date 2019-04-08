@@ -21,29 +21,33 @@ if (!mysqli_select_db($link, $db_name)) {
 
 // 4 设置数据库返回数据字符集
 
-mysqli_set_charset($link,$charset);
+mysqli_set_charset($link, $charset);
 
 // 5 执行查询的SQL语句
 $sql = "SELECT * FROM student";
 
 $result = mysqli_query($link, $sql);
 
-//var_dump($result);
-//var_dump($link);
-//echo "连接数据库";
-// 假设数据已经获取到，不需要再占着连接通道了，及时关闭
+// 6 从结果集中获取一行数据，并作为枚举数组返回
 
-// 6 手动销毁结果集变量
-
-//mysqli_free_result($result);
-//mysqli_close($link);
-
-// 7 从结果集中获取一行数据，并作为枚举数组返回
-
-while ($arr = mysqli_fetch_row($result)) {
+/*while ($arr = mysqli_fetch_row($result)) {
     print_r($arr);
-}
+}*/
 
-//$arr = mysqli_fetch_row($result);
-//
-//print_r($arr);
+
+// 6 从结果集中获取一行数据，并作为关联数组(字段名作为下标)返回
+
+/*while ($arr = mysqli_fetch_assoc($result)) {
+    print_r($arr['edu']);
+}*/
+
+// 6 从结果集中获取一行数据，枚举数组 和 关联数组 都有
+/*
+while ($arr = mysqli_fetch_array($result)) {
+    print_r($arr);
+}*/
+
+
+/*$arrs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+print_r($arrs);*/
