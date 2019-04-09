@@ -1,61 +1,31 @@
 <?php
-// 判断目录是文件 还是目录，  linux 没有文件夹 都是文件
 
-/*$dirname = "./public";
-if(is_dir($dirname)) {
-    echo "{$dirname}是目录";
-}else{
-    echo "{$dirname}是文件";
-}
-*/
+// 更改目录或文件名称  确定原来的目录必须存在
 
-// 判断文件是否存在
+// 注意： 如果原目录和新目录都位于同一心目录下，则认为是该名；
+// 注意： 如果原目录和新目录位于不同父目录下，则认为是移动
 
-/*$dirname = "./public";
+/*$olbName = "./itcast";
 
-if (file_exists($dirname)) {
-    echo "{$dirname}文件存在！<br/>";
-    // 如果文件存在，再判断它是目录还是普通文件
-    if (is_dir($dirname)) {
-        echo "{$dirname}是一个目录！";
-    } else {
-        echo "{$dirname}是一个文件！";
-    }
-} else {
-    echo "{$dirname}文件不存在！";
-}*/
+$newName = "./public";
 
-/*$dirname = "./public";
+rename($olbName, $newName);*/
 
-if(file_exists($dirname)) {
+// 目录移动
+/*$olbName = "./public";
 
-    //判断是不是目录
-    if(is_dir($dirname)) {
-        // 删除目录： 该目录必须是空的
-        rmdir($dirname);
-    }
-}*/
+$newName = "./itcast/public";
 
-// 更改文件或目录的权限  权限值不能加""
-
-/*$dirname = "./public";
-
-// windows 会忽略权限值，而linux下才有效果
-//chmod($dirname, 0444);
-
-chmod($dirname, 0754);
+rename($olbName, $newName);*/
 
 
-// 获取文件的权限值
 
-$int = fileperms($dirname);
+// 打开目录
 
-// 十进制转成8进制
+$dirname = "./itcast";
 
-$int = decoct($int);
+// 打开目录， 成功返回目录句柄(资源型),失败返回false
 
-//echo $int;
+$handle = opendir($dirname);
 
-// 截取字符串：40777转成0777
-
-echo substr($int, -4);*/
+var_dump($handle);
