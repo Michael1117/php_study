@@ -13,6 +13,7 @@ $handle = opendir($dirname);
 // 循环结束的标志 当资源中所有的条目全部读取完毕 返回false
 while ($line = readdir($handle)) {
     //echo $line."<br>";
+    echo iconv('utf-8','utf-8', $line)."<br>";
 }
 
 echo $line;
