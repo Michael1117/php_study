@@ -1,74 +1,46 @@
 <?php
+// 读取远程网页数据
 
-// 实例： 以只读方式打开已存在的文件
+/*$filename = "http://news.sina.com.cn";
 
-/*$filename = "./a.txt";
+// 不用打开文件 和关闭文件
 
-// 打开文件  返回文件句柄资源
-$handle = fopen($filename, 'rb');
-
-var_dump($handle);*/
-
-
-// 写入方式打开不存在的文件  会创建
-/*$filename = "./itcast.txt";
-
-// 打开文件  返回文件句柄资源
-$handle = fopen($filename, 'wb');
-
-// 关闭文件
-
-fclose($handle);
-
-var_dump($handle);*/
-
-
-// 读取一张
-
-/*$filename = "./images/01.png";
-
-// 以只读方式打开
-
-$handle = fopen($filename, 'rb');
-
-// 读取全部数据: filesize() 函数获取文件大小 以字节为单位
-
-$str = fread($handle, filesize($filename));
-
-// 告诉浏览器： 以图片数据显示
-header("Content-Type:image/jpg");
-
-echo $str;
-
-// 关闭文件
-
-fclose($handle);*/
-
-
-// 读取记事本的学生信息
-
-/*$filename = "./student.txt";
-
-// 以只读方式打开
-
-$handle = fopen($filename, 'rb');
-
-// 读取一行数据： 碰到换行符 文件结束符  都会终止读取
-
-//$str = fgets($handle);
-
-while ($str = fgets($handle)) {
-    echo $str;
-}*/
-
-
-// 读取记事本的学生信息数据
-
-$filename = "http://news.sina.cn";
-
-// 不用打开文件 和 关闭文件
-
-$arr = file($filename, 2 | 3);
+$arr = file_get_contents($filename);
 
 // 打开数组
-print_r($arr);
+
+print_r($arr);*/
+
+
+
+// 读取记事本学生信息 并用表格显示出来
+
+$filename = "./student.txt";
+
+// 将记事本数据读入数组中
+
+$arr = file($filename, 2|4);
+
+// echo 只能输出字符串 ，对象数组都不能输出
+
+//print_r($arr);
+
+
+$str = "<table border='1px'>";
+foreach ($arr as $value) {
+    $arr2 = explode(',', $value);
+    //print_r($arr2);
+
+    //die();
+    $str .= "<tr>";
+    foreach ($arr2 as $value2) {
+
+        $str .= "<td>".$value2."</td>";
+    }
+    //$str .= " <tr>";
+    //$str .= "   <td>{$value}</td>";
+    $str .="</tr>";
+}
+$str .= "</table>";
+
+echo $str;
