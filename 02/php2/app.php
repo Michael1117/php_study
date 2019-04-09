@@ -1,45 +1,74 @@
 <?php
 
-// 实例： 递归显示phpMyAdmin目录中所有条目
+// 实例： 以只读方式打开已存在的文件
 
-/*
- * 分析过程：
- *      1.函数递归： 递归是通过函数调用自己来实现
- *      2.操作顺序： 打开目录--读取所有条目
- *      3.递归条件： 如果它是目录，则递归调用，即打开目录--读取目录条目
- *      4.关闭目录
- * */
+/*$filename = "./a.txt";
 
-function show_all_files($dir)
-{
-    // 打开目录： 返回目录句柄资源
-    $handle = opendir($dir);
+// 打开文件  返回文件句柄资源
+$handle = fopen($filename, 'rb');
 
-    echo "<ul>";
+var_dump($handle);*/
 
-    // 循环读取目录中所有条目
-    while ($line = readdir($handle)) {
-        // 如果是'.'或'..', 则跳过
 
-        if($line == "." || $line == "..") {
-            continue;
-        }
-        echo "<li>$line</li>";
+// 写入方式打开不存在的文件  会创建
+/*$filename = "./itcast.txt";
 
-        // 如果当前条目是目录， 则递归调用：phpMyAdmin/js
-        if(is_dir($dir."/".$line)) {
-            show_all_files($dir."/".$line);
-        }
+// 打开文件  返回文件句柄资源
+$handle = fopen($filename, 'wb');
 
-    }
+// 关闭文件
 
-    echo "</ul>";
+fclose($handle);
 
-    // 关闭目录
-    closedir($handle);
+var_dump($handle);*/
 
-}
 
-// 调用函数
+// 读取一张
 
-show_all_files("./phpMyAdmin");
+/*$filename = "./images/01.png";
+
+// 以只读方式打开
+
+$handle = fopen($filename, 'rb');
+
+// 读取全部数据: filesize() 函数获取文件大小 以字节为单位
+
+$str = fread($handle, filesize($filename));
+
+// 告诉浏览器： 以图片数据显示
+header("Content-Type:image/jpg");
+
+echo $str;
+
+// 关闭文件
+
+fclose($handle);*/
+
+
+// 读取记事本的学生信息
+
+/*$filename = "./student.txt";
+
+// 以只读方式打开
+
+$handle = fopen($filename, 'rb');
+
+// 读取一行数据： 碰到换行符 文件结束符  都会终止读取
+
+//$str = fgets($handle);
+
+while ($str = fgets($handle)) {
+    echo $str;
+}*/
+
+
+// 读取记事本的学生信息数据
+
+$filename = "http://news.sina.cn";
+
+// 不用打开文件 和 关闭文件
+
+$arr = file($filename, 2 | 3);
+
+// 打开数组
+print_r($arr);
