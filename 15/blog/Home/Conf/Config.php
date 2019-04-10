@@ -1,21 +1,19 @@
 <?php
-//定义Home应用配置信息数组
+// 返回配置数组
+
 return array(
-	/*数据库配置*/
-	'db_type'	=> 'mysql',
-	'db_host'	=> 'localhost',
-	'db_port'	=> '3306',
-	'db_user'	=> 'root',
-	'db_pass'	=> '12345678',
-	'db_name'	=> 'blog',
-	'charset'	=> 'utf8',
+    // 数据库配置信息
+    "db_type" => "mysql",
+    "db_host" => 'localhost',
+    'db_port' => '3306',
+    'db_user' => 'root',
+    'db_pass' => '12345678',
+    'db_name' => 'itcast',
+    'charset' => 'utf8',
+    // 默认的路由参数
 
-	//Home默认配置信息
-	'default_platform'		=> 'Home',	//应用名称、平台名称
-	'default_controller'	=> 'Index',	//控制器名称
-	'default_action'		=> 'index',	//动作名称、方法名称
+    'default_platform' => 'Home',
+    'default_controller' => 'Index',
+    'default_action' => 'index'
+
 );
-
-
-
-?>
