@@ -21,10 +21,10 @@ final class Frame
     private static function initConfig()
     {
         $GLOBALS['config'] = require_once(APP_PATH."Conf".DS."Config.php");
-        print_r($GLOBALS);
+        //print_r($GLOBALS);
         // Array ( [_GET] => Array ( ) [_POST] => Array ( ) [_COOKIE] => Array ( [PHPSESSID] => h635isj1387rr6f7jusjtrqrd9 ) [_FILES] => Array ( ) [GLOBALS] => Array *RECURSION* [config] => Array ( [db_type] => mysql [db_host] => localhost [db_port] => 3306 [db_user] => root [db_pass] => 12345678 [db_name] => itcast [charset] => utf8 [default_platform] => Home [default_controller] => Index [default_action] => index ) )
-       
-        die();
+
+        //die();
     }
 
     //私有的静态的初始化路由参数
@@ -65,7 +65,11 @@ final class Frame
         //构建控制器类名称：Home\Controller\StudentController
         $controllerClassName = PLAT."\\"."Controller"."\\".CONTROLLER . "Controller";
         //创建控制器类的对象
+
+        //echo $controllerClassName;
+        //die();
         $controllerObj = new $controllerClassName();
+
 
         //根据用户的不同动作，调用不同的方法
         $action_name = ACTION;

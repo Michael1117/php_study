@@ -13,4 +13,8 @@ php_study
 
 ## blog/Frame/Frame.class.php
 
-## IndexController.php
+## IndexController.class.php
+
+## IndexModel.class.php
+
+## Db.class.php

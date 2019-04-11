@@ -27,6 +27,12 @@ die();*/
 require_once(ROOT_PATH."Frame".DS."Frame.class.php");
 
 // 调用框架初始化方法
-Frame\Frame::run()
+Frame\Frame::run();
 
-?>
+// 创建PDOWrapper类对象
+
+$pdo = new Frame\Vendor\PDOWrapper();
+
+$arr = $pdo -> fetchOne("SELECT * FROM user");
+
+print_r($arr);

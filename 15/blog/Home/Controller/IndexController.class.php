@@ -1,14 +1,14 @@
 <?php
-namespace Home\Controller;
+/*namespace Home\Controller;
 use \Home\Model\IndexModel;
 use \Frame\Libs\BaseController;
 use \Home\Model\CategoryModel;
 use \Home\Model\LinksModel;
 use \Home\Model\ArticleModel;
 use \Frame\Vendor\Pager;
-use \Home\Model\CommentModel;
+use \Home\Model\CommentModel;*/
 //定义IndexController控制器
-final class IndexController extends BaseController
+/*final class IndexController extends BaseController
 {
 	//网站首页
 	public function index()
@@ -178,4 +178,29 @@ final class IndexController extends BaseController
 		$this->jump("评论发布成功！","?c=Index&a=detail&id=".$data['article_id']);
 	}
 }
+*/
 
+
+// 声明命名空间
+
+namespace Home\Controller;
+
+// 定义首页控制器类
+
+use Home\Model\IndexModel;
+
+final class IndexController
+{
+    public function index() {
+        //echo "一切正常！";
+
+        // 创建模型类对象
+        //$modelObj = new IndexModel();
+
+        // 获取多行数据
+        //$arrs = $modelObj->fetchAll();
+
+        // 包含视图文件
+        //include VIEW_PATH.'index.html';
+    }
+}

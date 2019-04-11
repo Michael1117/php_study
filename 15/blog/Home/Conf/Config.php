@@ -8,7 +8,7 @@ return array(
     'db_port' => '3306',
     'db_user' => 'root',
     'db_pass' => '12345678',
-    'db_name' => 'itcast',
+    'db_name' => 'blog',
     'charset' => 'utf8',
     // 默认的路由参数
 
